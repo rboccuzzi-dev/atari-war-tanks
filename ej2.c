@@ -171,7 +171,7 @@ matriz_t *matriz_aplicar(const matriz_t *matriz, const matriz_t *ps) {
     if (matriz->filas != 4 || matriz->columnas != 4 || ps->columnas != 3) return NULL;
 
     size_t n = ps->filas;
-    matriz_t *resultado = _matriz_crear(n, 2);
+    matriz_t *resultado = _matriz_crear(n, 3);
     if (resultado == NULL) return NULL;
 
     for (size_t i = 0; i < n; i++) {
@@ -191,6 +191,7 @@ matriz_t *matriz_aplicar(const matriz_t *matriz, const matriz_t *ps) {
         float wg = aux[3];
         matriz_establecer(resultado, i, 0, aux[0] / wg);
         matriz_establecer(resultado, i, 1, aux[1] / wg);
+        matriz_establecer(resultado,i,2,w);
     }
     return resultado;
 }
