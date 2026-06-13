@@ -171,8 +171,8 @@ static void render_escena(SDL_Renderer *renderer, const mundo_t *mundo) {
 
     lista_modelos_t *m = mundo->modelos;
 
-    /* color de escena: verde (obstáculos y fondo) */
-    SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
+    /* color de escena: blanco (fondo) */
+    SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
     /* fondo: horizonte, montaña, luna */
     modelo_t *horizonte = lista_modelos_buscar(m, "HORIZONTE");
@@ -182,6 +182,9 @@ static void render_escena(SDL_Renderer *renderer, const mundo_t *mundo) {
     dibujar_mesh(renderer, horizonte, 0,0,0,0, cam.x,cam.y,cam.z,cam.yaw);
     dibujar_mesh(renderer, montana,   0,0,0,0, cam.x,cam.y,cam.z,cam.yaw);
     dibujar_mesh(renderer, luna,      0,0,0,0, cam.x,cam.y,cam.z,cam.yaw);
+
+    // Color de Obstaculos: verde (obstaculos)
+    SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
 
     /* obstáculos */
     for (int i = 0; i < CANT_OBSTACULOS; i++) {
